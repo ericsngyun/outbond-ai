@@ -9,6 +9,12 @@ export default function Home() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <div className="text-xl font-bold">Outrep.ai</div>
           <div className="flex items-center gap-4">
+            <Link
+              href="/pricing"
+              className="rounded-md px-4 py-2 text-sm font-medium hover:bg-accent"
+            >
+              Pricing
+            </Link>
             <SignedOut>
               <SignInButton mode="modal">
                 <button className="rounded-md px-4 py-2 text-sm font-medium hover:bg-accent">
