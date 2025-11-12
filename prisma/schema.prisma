@@ -9,4 +9,63 @@ datasource db {
   directUrl = env("DATABASE_URL")
 }
 
-// Baseline schema - add your models here as needed
+// User model - stores Clerk user data
+// Best practice: Store only Clerk ID and essential data
+// Access full user data from Clerk session token when needed
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique // Primary lookup key
+  email     String   @unique
+  name      String?
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  subscriptions Subscription[]
+
+  @@index([clerkId]) // Fast lookups by Clerk ID
+  @@index([email]) // Fast lookups by email
+  @@map("users")
+}
+
+// Subscription model - manages Stripe billing
+model Subscription {
+  id String @id @default(cuid())
+
+  // User relation
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Stripe identifiers
+  stripeCustomerId       String   @unique
+  stripeSubscriptionId   String?  @unique
+  stripePriceId          String
+  stripeCurrentPeriodEnd DateTime?
+
+  // Subscription status
+  // Ref: https://docs.stripe.com/api/subscriptions/object#subscription_object-status
+  status SubscriptionStatus @default(incomplete)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId]) // Fast lookups by user
+  @@index([stripeCustomerId]) // Fast lookups by Stripe customer
+  @@index([stripeSubscriptionId]) // Fast lookups by subscription
+  @@index([status]) // Fast filtering by status
+  @@map("subscriptions")
+}
+
+// Stripe subscription statuses
+// Ref: https://docs.stripe.com/billing/subscriptions/overview#subscription-statuses
+enum SubscriptionStatus {
+  incomplete
+  incomplete_expired
+  trialing
+  active
+  past_due
+  canceled
+  unpaid
+}
