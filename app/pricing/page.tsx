@@ -2,6 +2,7 @@ import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { PRICING_PLANS } from "@/lib/stripe";
 import { Check } from "lucide-react";
+import { PricingCardCTA } from "@/components/pricing-card-cta";
 
 export const metadata = {
   title: "Pricing - Outrep.ai",
@@ -133,22 +134,11 @@ export default function PricingPage() {
                     </Link>
                   </SignedOut>
                   <SignedIn>
-                    {key === "FREE" ? (
-                      <div className="block w-full rounded-lg border border-border bg-muted px-4 py-3 text-center text-sm font-semibold text-muted-foreground">
-                        Current Plan
-                      </div>
-                    ) : (
-                      <Link
-                        href="/dashboard"
-                        className={`block w-full rounded-lg px-4 py-3 text-center text-sm font-semibold transition-opacity ${
-                          popular
-                            ? "bg-primary text-primary-foreground hover:opacity-90"
-                            : "border border-border bg-background hover:bg-accent"
-                        }`}
-                      >
-                        Upgrade to {plan.name}
-                      </Link>
-                    )}
+                    <PricingCardCTA
+                      planKey={key}
+                      planName={plan.name}
+                      isPopular={popular}
+                    />
                   </SignedIn>
                 </div>
               );
