@@ -3,7 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Outbond.ai - Personalize 100 cold emails in 10 minutes",
+  title: "Outrep.ai - Personalize 100 cold emails in 10 minutes",
   description:
     "AI-powered SDR personalization platform for agencies and SMB SaaS doing outbound",
 };

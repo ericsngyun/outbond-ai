@@ -1,9 +1,9 @@
 {
-  "name": "outbond-ai",
+  "name": "outrep-ai",
   "version": "0.1.0",
   "private": true,
-  "description": "Personalize 100 cold emails in 10 minutes - AI SDR personalization SaaS",
-  "author": "Eric <eric@outbond.ai>",
+  "description": "AI-powered SDR personalization platform - Personalize 100 cold emails in 10 minutes",
+  "author": "Eric <eric@outrep.ai>",
   "license": "MIT",
   "engines": {
     "node": ">=20.11.0",

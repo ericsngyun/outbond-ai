@@ -7,7 +7,7 @@ export default function Home() {
       {/* Header */}
       <header className="border-b">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <div className="text-xl font-bold">Outbond.ai</div>
+          <div className="text-xl font-bold">Outrep.ai</div>
           <div className="flex items-center gap-4">
             <SignedOut>
               <SignInButton mode="modal">
@@ -39,7 +39,7 @@ export default function Home() {
       <main className="flex flex-1 flex-col items-center justify-center p-24">
         <div className="z-10 max-w-5xl text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-            Outbond.ai
+            Outrep.ai
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
             Personalize 100 cold emails in 10 minutes

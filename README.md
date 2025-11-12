@@ -1,4 +1,4 @@
-# Outbond.ai
+# Outrep.ai
 
 > **Personalize 100 cold emails in 10 minutes** — AI-powered SDR personalization platform for agencies and SMB SaaS doing outbound.
 
@@ -16,7 +16,7 @@
 
    ```bash
    git clone <repo-url>
-   cd outbond-ai
+   cd outrep-ai
    npm install
    ```
 
@@ -123,7 +123,7 @@ npm run db:migrate:deploy  # Deploy migrations (prod)
 ## 📁 Project Structure
 
 ```
-outbond-ai/
+outrep-ai/
 ├── app/                    # Next.js 15 App Router
 │   ├── api/                # API routes
 │   │   ├── health/         # Health check endpoint
@@ -294,7 +294,7 @@ MIT License - see [LICENSE](LICENSE)
 
 ## 🆘 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourorg/outbond-ai/issues)
+- **Issues**: [GitHub Issues](https://github.com/yourorg/outrep-ai/issues)
 - **Docs**: See `/docs` (coming soon)
 
 ---
