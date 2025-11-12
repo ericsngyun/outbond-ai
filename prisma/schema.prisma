@@ -68,4 +68,5 @@ enum SubscriptionStatus {
   past_due
   canceled
   unpaid
+  paused
 }
